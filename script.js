@@ -15,10 +15,10 @@ for (let [index, movieItem] of moviesData.entries()) {
     let listedMovie = document.createElement("LI");
     listedMovie.innerHTML =
         "<p>" + movieItem.title + "</p>" +
-        "<p>" + movieItem.year + "</p>" +
-        "<p>" + movieItem.summary + "</p>" +
-        "<p>" + movieItem.genre + "</p>" +
-        "<p id='movie-" + index + "' onclick='updateMovies(" + index + ")'>" + movieStatus + "</p>";
+        "<p class='col-3'>Year: " + movieItem.year + "</p>" +
+        "<p class='col-3'>Genre: " + movieItem.genre + "</p>" +
+        "<p class='col-3 movie-status' id='movie-" + index + "' onclick='updateMovies(" + index + ")'>Seen: " + movieStatus + "</p>" +
+        "<p>" + movieItem.summary + "</p>";
     document.querySelector("#moviesList").appendChild(listedMovie);
 }
 
@@ -42,5 +42,5 @@ function updateMovies(index) {
         movieStatus = "X";
     }
     document.querySelector("#moviesCounterSeen").innerHTML = moviesCounterSeen;
-    document.querySelector("#movie-" + index).innerHTML = movieStatus;
+    document.querySelector("#movie-" + index).innerHTML = "Seen: " + movieStatus;
 }
